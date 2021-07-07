@@ -1,43 +1,38 @@
-import React, { Component, useState } from 'react';
-import styles from '../prettify.scss';
-// import ReactDOM from 'react-dom';
+import React from 'react';
+import '../prettify.scss';
+import Page from "../components/page.jsx";
+import Login from "../components/login.jsx";
+import Signup from "../components/signup.jsx";
 
-class App extends Component{
-  constructor(props) {
-    super(props)
-    this.state = { };
-  }
+function App() {
+  return (
+    <div>
 
-//   getResults(data) {
-
-//   }
-
-  const handleClick = () => {
-    axios('/auth', {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        username,
-        password,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log('Repsonse form login POST:', data));
-
-    props.onClick();
-  };
-  
-
-
-
-  render(){
-      return(
-      <div>
-          <h2>WELCOME TO BOOKBIT: TESTING APP HANG</h2>
-          <button onclick={handleClick}>Sign in with Github</button>
+      <div className="logingif">
+        <img src="../page.png" width="600 px" height="480 px"></img>
       </div>
-      );
-   }
+
+      <div className="logingif">
+        <img src="../logingif.gif" width="600 px" height="480 px"></img>
+      </div>
+
+      <div class="container" className="imagetitle">
+        <div class="row">
+          <div class="col">
+          <img src="../logoclear.png" className="books"></img>
+          </div>
+          <div class="col">
+          <h4 className="title">BookBit</h4>
+          </div>
+        </div>
+      </div>
+
+      <div className="righted">
+      <Page/>
+      </div>
+    </div>
+  );
+
 }
 
 export default App;

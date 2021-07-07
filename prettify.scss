@@ -1,12 +1,88 @@
 $black: black;
-$red: pink;
+$back: #4AA0B5;
 $white: white; 
+
+@import "~bootstrap/scss/bootstrap";
 
 @font-face {
     font-family: Camp;
     src: 'camp.woff';
 }
 
+.books {
+    width: 80px;
+    height: 80px;
+    margin-left: -20px;
+}
+
+.title {
+    text-align: center;
+    color: gold;
+    font-size: 50px;
+    letter-spacing: -0.01em;
+    line-height: 28px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: -20px;
+}
+
+.loginheader {
+    text-align: center;
+    color: #5E6C84;
+    font-size: 24px;
+    letter-spacing: -0.01em;
+    line-height: 28px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.or {
+    text-align: center;
+    color: #5E6C84;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    line-height: 28px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.imagetitle {
+    display: block;
+    background-color: $back;
+    max-width: 585px;
+    position: fixed;
+    top: 10%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+
+.logingif {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.righted {
+    display: block;
+    max-width: 585px;
+    height: 560px;
+    position: fixed;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    padding: 30px 50px;
+    box-shadow: rgb(0 0 0 / 10%) 0 0 10px;
+}
+
+.separate{
+    background: #FFFFFF;
+    padding: 5px;
+}
+
 body {
-    background: $red;
+    background: $back;
 }
