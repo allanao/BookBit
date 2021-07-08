@@ -22,9 +22,13 @@ class Login extends Component {
                 </div>
                 <p className="or">OR</p>
                 <div className="form-group">
-                    <Link to="/auth"><button type="button" className="btn btn-warning btn-large w-100">Placeholder for GitHub OAuth</button></Link>
+                    <button type="button" className="btn btn-warning btn-large w-100">
+                        Placeholder for GitHub OAuth
+                    </button>
                     <div className="separate"></div>
-                    <Link to="/auth"><button type="button" className="btn btn-warning btn-large w-100">Placeholder for Google OAuth</button></Link>
+                    <button type="button" className="btn btn-warning btn-large w-100">
+                        Placeholder for Google OAuth    
+                    </button>
                     <div className="separate"></div>
                     <div className="separate"></div>
                 </div>

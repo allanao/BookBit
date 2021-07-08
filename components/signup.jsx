@@ -10,11 +10,12 @@ import axios from "axios";
 
 function Signup() {
 
-    const handleGithubClick = () => {
+    function handleGithubClick() {
         console.log('handlegithub clicked!')
-        fetch('/auth')
-        .then((data) => console.log(data))
-        .catch((err) => console.log('err', err))
+        axios.get('/auth')
+            .then((data) => console.log('data', data))
+            .catch((err) => console.log('err', err))
+            // .then((res) => location.reload())
             // .then(() => next())
             // .catch((err) => next(err))
     };
@@ -36,14 +37,13 @@ function Signup() {
             </div>
             <p className="or">OR</p>
             <div className="form-group">
-                <Link to="/auth">
-                    <button type="button" className="btn btn-warning btn-large w-100">
-                        Sign up with GitHub 
-                    </button>
-                </Link>
+                <button type="button" className="btn btn-warning btn-large w-100" onClick={() => handleGithubClick()}>
+                    Sign up with GitHub 
+                </button>
+  
                 <div className="separate"></div>
 
-                <button type="button" className="btn btn-warning btn-large w-100" onClick={handleGithubClick()}>
+                <button type="button" className="btn btn-warning btn-large w-100" onClick={() => handleGithubClick()}>
                     Placeholder for Google OAuth
                 </button>
 
