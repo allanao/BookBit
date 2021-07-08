@@ -30,12 +30,20 @@ module.exports = {
   },
   devServer: {
     host: 'localhost',
+    compress: true,
+    disableHostCheck: true,
     port: 8080,
     publicPath: '/',
     hot: true,
     inline: true,
     contentBase: path.resolve(__dirname, 'dist'),
-    proxy: {"./": "http://localhost:3000"}
+    proxy: {
+      "./": "http://localhost:3000", 
+      "/auth": "http://localhost:3000"
+    },
+    allowedHosts: [
+      'e45a9965e6c5.ngrok.io',
+    ]
   },
   plugins: [
     new HtmlWebPackPlugin({ 
