@@ -42,7 +42,7 @@ module.exports = {
       "/auth": "http://localhost:3000"
     },
     allowedHosts: [
-      'e45a9965e6c5.ngrok.io',
+      'dfdfa5c24914.ngrok.io',
     ]
   },
   plugins: [

@@ -36,27 +36,59 @@ app.all('/*', function(req, res, next) {
 app.get('/auth', (req, res) => {
   console.log('auth endpoint')
   res.redirect(
-    `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}`
-  );
+    `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&scope=user:email`
+  )
 });
 
-app.get('/oauth-callback', ({ query: { code } }, res) => {
-  const body = {
-    client_id: process.env.GITHUB_CLIENT_ID,
-    client_secret: process.env.GITHUB_SECRET,
-    code,
-  };
-  const opts = { headers: { accept: 'application/json' } };
-  axios
-    .post('https://github.com/login/oauth/access_token', body, opts)
-    .then((_res) => _res.data.access_token)
-    .then((token) => {
-      // eslint-disable-next-line no-console
-      console.log('My token:', token);
+// helper function for handling oauth callback endpoint
+async function getGithubUser({ code }) {
+  const githubToken = await axios
+    .post(
+      `https://github.com/login/oauth/access_token?client_id=${process.env.GITHUB_CLIENT_ID}&client_secret=${process.env.GITHUB_SECRET}&code=${code}`
+    )
+    .then((res) => res.data)
+    .catch((err) => {
+      throw err;
+    });
+  console.log('githubToken', githubToken)
+  const decoded = JSON.stringify(githubToken);
+  console.log('decoded', decoded);
+  const accessToken = decoded.access_token;
+  console.log('accessToken', accessToken)
 
-      res.redirect(`/?token=${token}`);
+  return axios
+    .get("https://api.github.com/user", {
+      headers: { Authorization: `Bearer ${accessToken}` },
     })
-    .catch((err) => res.status(500).json({ err: err.message }));
+    .then((res) => {
+      res.data
+      console.log(res.data)
+    })
+    .catch((error) => {
+      console.error(`Error getting user from GitHub`);
+      throw error;
+    });
+}
+
+app.get('/shelf', async (req, res) => {
+  const code = get(req, 'query.code');
+  const path = get(req, 'query.path', '/');
+
+  if (!code) {
+    throw new Error('No code!');
+  }
+
+  const githubUser = await getGithubUser({ code });
+
+  const token = jwt.sign(githubUser, process.env.secret);
+  console.log('token', token);
+
+  res.cookie(process.env.COOKIE_NAME, token, {
+    httpOnly: true,
+    domain: "localhost",
+  });
+
+  res.redirect(`http://localhost:8080${path}`)
 });
 
 app.get('/', (req, res) => {

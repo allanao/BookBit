@@ -9,11 +9,12 @@ import {
 import axios from "axios";
 
 function Signup() {
+    // useState for saving username
 
     function handleGithubClick() {
         console.log('handlegithub clicked!')
-        axios.get('/auth')
-            .then((data) => console.log('data', data))
+        fetch('/auth')
+            .then(() => console.log('then'))
             .catch((err) => console.log('err', err))
             .then((res) => location.reload())
             // .then(() => next())
