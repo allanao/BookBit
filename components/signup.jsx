@@ -15,7 +15,7 @@ function Signup() {
         axios.get('/auth')
             .then((data) => console.log('data', data))
             .catch((err) => console.log('err', err))
-            // .then((res) => location.reload())
+            .then((res) => location.reload())
             // .then(() => next())
             // .catch((err) => next(err))
     };
@@ -37,10 +37,11 @@ function Signup() {
             </div>
             <p className="or">OR</p>
             <div className="form-group">
-                <button type="button" className="btn btn-warning btn-large w-100" onClick={() => handleGithubClick()}>
-                    Sign up with GitHub 
-                </button>
-  
+                <Link to="/auth">
+                    <button type="button" className="btn btn-warning btn-large w-100" onClick={() => handleGithubClick()}>
+                        Sign up with GitHub 
+                    </button>
+                </Link>
                 <div className="separate"></div>
 
                 <button type="button" className="btn btn-warning btn-large w-100" onClick={() => handleGithubClick()}>
