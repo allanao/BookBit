@@ -37,60 +37,61 @@ export default function App() {
   }
   
   return (
-    <Router>
-      <div>
-      <Switch>
-       <Route exact path="/">
-        <div className="logingif">
-          <img src="../page.png" width="600 px" height="480 px"></img>
-        </div>
-         <div className="logingif"> 
-            <img src="../logingif.gif" width="600 px" height="480 px"></img>
-        </div>
-        <div className="container" className="imagetitle">
-        <div className="row">
-          <div className="col">
-          <img src="../logoclear.png" className="books"></img>
-          </div>
-          <div className="col">
-          <h4 className="title">BookBit</h4>
-          </div>
-        </div>
-        </div>
-        <div className="righted">
-          <Login redirect={redirect} setRedirect={setRedirect} />
-        </div>
+    // <Router>
+    //   <div>
+    //   <Switch>
+    //    <Route exact path="/">
+    //     <div className="logingif">
+    //       <img src="../page.png" width="600 px" height="480 px"></img>
+    //     </div>
+    //      <div className="logingif"> 
+    //         <img src="../logingif.gif" width="600 px" height="480 px"></img>
+    //     </div>
+    //     <div className="container" className="imagetitle">
+    //     <div className="row">
+    //       <div className="col">
+    //       <img src="../logoclear.png" className="books"></img>
+    //       </div>
+    //       <div className="col">
+    //       <h4 className="title">BookBit</h4>
+    //       </div>
+    //     </div>
+    //     </div>
+    //     <div className="righted">
+    //       <Login redirect={redirect} setRedirect={setRedirect} />
+    //     </div>
 
-       </Route>
+    //    </Route>
 
-       <Route exact path="/signup">
-       <div className="logingif">
-          <img src="../page.png" width="600 px" height="480 px"></img>
-        </div>
-         <div className="logingif"> 
-            <img src="../signupgif.gif" width="600 px" height="480 px"></img>
-        </div>
-        <div className="container" className="imagetitle">
-        <div className="row">
-          <div className="col">
-          <img src="../logoclear.png" className="books"></img>
-          </div>
-          <div className="col">
-          <h4 className="title">BookBit</h4>
-          </div>
-        </div>
-        </div>
-        <div className="righted">
-          <Signup />
-        </div>
-       </Route>
+    //    <Route exact path="/signup">
+    //    <div className="logingif">
+    //       <img src="../page.png" width="600 px" height="480 px"></img>
+    //     </div>
+    //      <div className="logingif"> 
+    //         <img src="../signupgif.gif" width="600 px" height="480 px"></img>
+    //     </div>
+    //     <div className="container" className="imagetitle">
+    //     <div className="row">
+    //       <div className="col">
+    //       <img src="../logoclear.png" className="books"></img>
+    //       </div>
+    //       <div className="col">
+    //       <h4 className="title">BookBit</h4>
+    //       </div>
+    //     </div>
+    //     </div>
+    //     <div className="righted">
+    //       <Signup />
+    //     </div>
+    //    </Route>
 
-       <Route exact path="/shelf" component={ShelfView} />
+    //    <Route exact path="/shelf" component={ShelfView} />
 
-      </Switch>
-      </div>
+    //   </Switch>
+    //   </div>
 
-    </Router>
+    // </Router>
+    <ShelfView/>
   );
 }
 
