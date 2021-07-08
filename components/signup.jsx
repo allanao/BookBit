@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import '../prettify.scss';
+import axios from 'axios';
 
 class Signup extends Component {
+
+    // handleGithubClick = () => {
+    //     axios.get('/auth')
+    //         .then(() => next())
+    // }
+
     render() {
         return (
             <form>
@@ -20,7 +27,7 @@ class Signup extends Component {
                 </div>
                 <p className="or">OR</p>
                 <div className="form-group">
-                    <button type="button" className="btn btn-warning btn-large w-100">Placeholder for GitHub OAuth</button>
+                    <button type="button" className="btn btn-warning btn-large w-100">Sign up with GitHub OAuth</button>
                     <div className="separate"></div>
                     <button type="button" className="btn btn-warning btn-large w-100">Placeholder for Google OAuth</button>
                     <div className="separate"></div>
